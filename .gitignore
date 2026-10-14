@@ -1,0 +1,5 @@
+.DS_Store
+**/.DS_Store
+发布包/
+__pycache__/
+*.py[cod]

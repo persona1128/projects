@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+ <defs><linearGradient id="star" x2="0" y2="1"><stop stop-color="#fff9cb"/><stop offset="1" stop-color="#f4cc72"/></linearGradient></defs>
+ <g stroke-linejoin="round" stroke-linecap="round">
+  <path d="M25 65Q11 78 17 93Q29 88 35 72M75 65Q89 78 83 93Q71 88 65 72" fill="#b9e5dd" stroke="#66aeb0" stroke-width="2"/>
+  <path d="M50 2L63 25L92 16L78 44L96 65L68 66L50 91L32 66L4 65L22 44L8 16L37 25Z" fill="url(#star)" stroke="#b88847" stroke-width="3"/>
+  <path d="M28 29Q50 19 72 29L74 52Q72 73 50 79Q28 73 26 52Z" fill="#fffdf2" stroke="#bfa884" stroke-width="2"/>
+  <path d="M23 39L33 43L31 56L21 53ZM77 39L67 43L69 56L79 53Z" fill="#64bbb8" stroke="#428b92" stroke-width="1.5"/>
+  <path d="M37 53q5 5 10 0M53 53q5 5 10 0" fill="none" stroke="#536e73" stroke-width="2.5"/>
+  <path d="M47 64q3 2 6 0" fill="none" stroke="#c88d8f" stroke-width="2"/>
+  <circle cx="34" cy="61" r="3" fill="#f8c1bb" opacity=".65"/><circle cx="66" cy="61" r="3" fill="#f8c1bb" opacity=".65"/>
+ </g>
+</svg>

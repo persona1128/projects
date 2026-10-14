@@ -1,0 +1,63 @@
+:root{color-scheme:light;--ink:#354b45;--muted:#7a897e;--paper:#f5f3e9;--green:#526e59}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif}header{max-width:1420px;margin:auto;height:105px;display:flex;align-items:center;justify-content:space-between;padding:0 42px}.brand{font-size:21px;font-weight:650;color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:1px solid #bfc8b7;background:#f5f3e9e8;border-radius:5px;padding:10px 16px;cursor:pointer}button:hover{background:#dfe6d7}button:focus-visible{outline:3px solid #daae68}header button{font-size:12px;margin-left:9px}main{max-width:1420px;margin:auto;padding:0 42px;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:40px}#game{aspect-ratio:4/3;position:relative;overflow:hidden;background:#8ea185;border-radius:9px;box-shadow:0 20px 50px #43574118;isolation:isolate}#backdrop,canvas,#portraits,#cover,#overlay,#transition{position:absolute;inset:0;width:100%;height:100%}#backdrop{background-size:cover;background-position:center;transition:filter .8s,background-image .8s}#backdrop.blurred{filter:blur(5px) brightness(.83);transform:scale(1.02)}canvas{z-index:1}#topline{position:absolute;top:20px;left:23px;right:23px;display:flex;justify-content:flex-end;align-items:center;z-index:4;color:#fff7e6;font-size:12px;letter-spacing:1px;text-shadow:0 1px 4px #344f40}#skip{font-size:11px;padding:7px 10px}#hud{position:absolute;top:65px;left:24px;right:24px;z-index:3;background:#f5f3e9ed;padding:12px 16px;display:flex;align-items:center;gap:20px;font-size:12px;border-radius:5px}#hud>div{min-width:155px}#hp{float:right}.meter{height:5px;background:#d8dccd;margin-top:6px}.meter i{display:block;height:100%;background:#6e947a;width:100%}#progress{margin-left:auto}#portraits{z-index:2;display:flex;justify-content:space-evenly;align-items:flex-end;padding-bottom:23%;pointer-events:none}#portraits img{width:30%;height:67%;object-fit:contain;filter:grayscale(.75) brightness(.6);transform:translateY(12px);transition:.25s;opacity:.9}#portraits img.active{filter:none;transform:translateY(0);opacity:1}#dialogue{position:absolute;z-index:5;bottom:4%;left:4%;right:4%;min-height:24%;background:#fcf9eaf5;border:1px solid #e6dec3;border-radius:7px;padding:20px 27px 30px;cursor:pointer;box-shadow:0 8px 35px #243c3830}#speaker{font-size:13px;color:#60846e;font-weight:bold;letter-spacing:2px}#line{font-size:clamp(13px,1.45vw,19px);line-height:1.9;margin:9px 0 12px}.next{font-size:10px;color:#87927e;text-align:right;position:absolute;bottom:13px;right:22px}.next span{margin-left:12px}#cover{z-index:6;background:linear-gradient(90deg,#233f38ba,#34554855);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#fff7df}#cover h1{font-family:"Microsoft YaHei","微软雅黑","PingFang SC",sans-serif;font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:4px;margin:0 0 34px}.primary{background:#f0ddb0;border:0;color:#435443;padding:15px 30px;font-size:14px}.primary span{margin-left:36px}#start{margin-top:0}aside{padding-top:24px}.small-label{font-size:12px;color:#637d68;letter-spacing:2px}dl{margin-top:24px}dl div{display:flex;align-items:center;margin:18px 0;gap:12px}dt{border:1px solid #c6cebc;border-radius:4px;min-width:33px;padding:6px;text-align:center;font-size:10px}dd{margin:0;font-size:11px}#overlay{z-index:9;background:#263d35ec;color:#f4ecd3;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:12px;animation:fade .65s}#overlay h2{font-family:serif;font-weight:400;font-size:37px;margin:10px}#overlay p{font-size:13px;max-width:80%;line-height:1.8}#endlabel{font-size:10px;letter-spacing:4px;color:#b4c4ab}#transition{z-index:8;background:#16221c;opacity:0;pointer-events:none;transition:opacity .6s}#transition.flash{opacity:1}[hidden]{display:none!important}#touch{display:none}@keyframes fade{from{opacity:0}to{opacity:1}}@media(max-width:1000px){header{height:80px;padding:0 18px}main{padding:0 18px;gap:20px;grid-template-columns:minmax(0,1fr) 180px}#hud{top:51px;font-size:10px;gap:10px;padding:8px}#hud>div{min-width:110px}#dialogue{padding:13px 17px 25px}#line{line-height:1.6}#topline{top:12px}}@media(max-width:720px){main{display:block;padding:0 8px}#game{aspect-ratio:3/4}canvas{object-fit:fill}aside{padding:18px 10px}.small-label,dl{display:none}#touch{display:flex;gap:6px;justify-content:center;touch-action:none}#touch button{padding:14px;user-select:none}#portraits{padding-bottom:43%}#dialogue{min-height:28%}#line{font-size:15px}#hud{left:10px;right:10px}#progress{font-size:9px}#cover h1{font-size:44px}}
+/* 人物和剧情道具分层，道具不随发言角色切换而移动。 */
+#story-props{position:absolute;inset:0;z-index:3;pointer-events:none}
+#portraits.treasure-scene>img{position:absolute;bottom:31%;height:53%;width:24%}
+#portraits.treasure-scene>img:nth-child(1){left:1%}
+#portraits.treasure-scene>img:nth-child(2){left:24%;width:21%}
+#portraits.treasure-scene>img:nth-child(3){right:1%}
+#story-props.treasure-scene .story-prop{position:absolute;left:44%;bottom:32%;width:30%;height:52%}
+#story-props.notebook-scene .story-prop{position:absolute;left:25%;bottom:31%;width:50%;height:57%}
+.story-prop{position:relative;width:43%;height:78%;display:flex;align-items:flex-end;justify-content:center}
+#story-props .story-prop img{filter:none;opacity:1;transform:none;object-fit:contain}
+#story-props .story-prop .prop-art{width:100%;height:85%;position:relative;z-index:2}
+#story-props .story-prop .scroll-art{position:absolute;width:72%;height:62%;top:-3%;left:14%;z-index:3;filter:drop-shadow(0 0 13px #ffe39b);animation:scroll-float 3s ease-in-out infinite}
+
+.treasure-light{position:absolute;inset:0 -12%;background:radial-gradient(ellipse,#fff4bca6 0%,#ffdf7344 35%,transparent 68%);mix-blend-mode:screen;z-index:1;animation:treasure-glow 2.4s ease-in-out infinite}
+.story-sparkle{position:absolute;z-index:4;color:#fff5bd;text-shadow:0 0 9px #ffcc58;animation:story-twinkle 2.3s ease-in-out infinite;pointer-events:none}
+.wish-sticker{position:absolute;z-index:4;right:25%;bottom:31%;font-size:42px;color:#f5cc61;text-shadow:0 0 12px #fff0bd}
+#game.paused .story-prop,#game.paused .story-prop *{animation-play-state:paused!important}
+@keyframes scroll-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes treasure-glow{0%,100%{opacity:.55;transform:scale(.96)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes story-twinkle{0%,100%{opacity:.15;transform:translateY(5px) scale(.5)}50%{opacity:1;transform:translateY(-9px) scale(1.15)}}
+@media(max-width:720px){#story-props.notebook-scene .story-prop{left:15%;width:70%;bottom:34%}#portraits.treasure-scene>img{bottom:35%;height:45%}#story-props.treasure-scene .story-prop{bottom:36%;height:43%}#story-props .story-prop .scroll-art{height:52%;top:10%}}
+@media(prefers-reduced-motion:reduce){.story-prop,.story-prop *{animation:none!important}}
+/* 梦乡用独立黑幕渐变，文字框仍保持可读。 */
+#backdrop::after{content:"";position:absolute;inset:0;background:#080b0d;opacity:0;pointer-events:none;transition:opacity .6s}
+#backdrop.black::after{opacity:1}
+#portrait-reactions{position:absolute;inset:0;z-index:4;pointer-events:none}
+.portrait-reaction{position:absolute;top:22%;display:grid;place-items:center;min-width:48px;height:48px;padding:0 7px;border:3px solid #fff9e8;border-radius:46% 54% 52% 48%;background:#ffe9a7;color:#704f69;font-size:30px;font-weight:900;line-height:1;box-shadow:0 5px 0 #db9c8b,0 8px 18px #33463977;transform:rotate(-12deg);animation:reaction-pop .45s cubic-bezier(.2,1.6,.4,1) both}
+.portrait-reaction.gardevoir{left:30%}
+.portrait-reaction.ralts{left:63%;background:#e7f5d2;color:#5b7664}
+@keyframes reaction-pop{from{opacity:0;transform:translateY(18px) scale(.25) rotate(-25deg)}to{opacity:1;transform:translateY(0) scale(1) rotate(-12deg)}}
+@media(prefers-reduced-motion:reduce){.portrait-reaction{animation:none}}
+/* 战斗状态栏贴近游戏画面顶端。 */
+#hud{top:10px}
+#grapes{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.grape-icon{font-size:18px;line-height:1}
+.portrait-reaction.charizard{left:79%;background:#ffe4bd;color:#805b4d}
+#portrait-reactions.three-cast .portrait-reaction.ralts{left:47%}
+@media(max-width:1000px){#hud{top:8px}}
+
+/* 现实物件侵入梦境时，村庄逐步扭曲。 */
+.filter-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+#backdrop.dream-warp{filter:url(#dream-warp) blur(3px) brightness(.85);transform:scale(1.06) skewX(-2deg)}
+#backdrop.dream-warp-deep{filter:url(#dream-warp-deep) blur(6px) brightness(.72);transform:scale(1.1) skewX(4deg) rotate(-1deg)}
+#dream-glow{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 55% 42%,#fffbd4b8 0%,#fff0a482 29%,#f7cd534d 57%,transparent 88%),repeating-conic-gradient(from 8deg at 55% 42%,#fff9bb3d 0deg 9deg,transparent 9deg 24deg);mix-blend-mode:screen;animation:dream-gold 2.6s ease-in-out infinite}
+@keyframes dream-gold{0%,100%{opacity:.67;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+#story-props.muted .story-prop{filter:grayscale(1) brightness(.68)}
+#story-props.muted .story-prop *{animation:none!important}
+#story-props.muted .treasure-light,#story-props.muted .story-sparkle,#story-props.muted .sticker-sparkle{visibility:hidden}
+#story-props .story-prop .dream-sticker{position:absolute;z-index:5;width:16%;height:16%;left:43%;top:-16%;filter:drop-shadow(0 1px 3px #775d54);animation:sticker-float 3s ease-in-out infinite}
+#story-props .story-prop .wish-sticker{position:absolute;z-index:5;width:14%;height:14%;right:24%;bottom:31%;font-size:unset;color:unset;text-shadow:none;filter:drop-shadow(0 1px 3px #775d54)}
+.sticker-sparkle{position:absolute;z-index:6;color:#fff7bd;text-shadow:0 0 7px #ffc856;animation:story-twinkle 2.3s ease-in-out infinite}
+@keyframes sticker-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+#game.paused #dream-glow,#game.paused .dream-sticker{animation-play-state:paused}
+#backdrop.black-now::after{opacity:1;transition:none}
+@media(prefers-reduced-motion:reduce){#dream-glow,#story-props .story-prop .dream-sticker,.sticker-sparkle{animation:none!important}}
+#portraits.treasure-scene + #portrait-reactions .portrait-reaction.gardevoir{left:17%}
+#portraits.treasure-scene + #portrait-reactions .portrait-reaction.ralts{left:39%}
+#game.finished{background:#263d35}
+#game.finished #backdrop,#game.finished #portraits,#game.finished #portrait-reactions,#game.finished #story-props,#game.finished #dream-glow,#game.finished #dialogue{visibility:hidden}
+#game.finished #overlay{background:#263d35}
+.site-footer{max-width:1420px;margin:18px auto 28px;padding:0 42px;display:flex;justify-content:space-between;gap:12px;color:#8e9b8d;font-size:11px;letter-spacing:1px}
+@media(max-width:720px){.site-footer{padding:0 18px;flex-wrap:wrap;font-size:10px}}
