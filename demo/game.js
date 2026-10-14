@@ -16,6 +16,17 @@ function cacheAsset(path,w,h){
 }
 function loadAll(o){Object.values(o).forEach(v=>typeof v==='object'?loadAll(v):/\.(svg|png|webp|jpg)$/.test(v)&&img(v));}loadAll(C.assets);
 let mode='title',paused=false,muted=false,bgm=null,bgKey=null,section='A',lineIndex=0,level=0,hp=C.player.hp,grapes=C.player.grapes,keys={},enemies=[],bullets=[],shots=[],particles=[],fires=[],schedule=[],elapsed=0,killed=0,spawned=0,player={x:480,y:610},attackCD=0,hurtCD=0,healCD=0,allyShots=0,allyCD=0,allyText='',allyRest=0,pendingFlame=0,shake=0,checkpoint=null;
+const bgmPlayers=new Map();
+function prepareMusic(key){
+ if(!key||key==='pauseTown08')return null;
+ if(!bgmPlayers.has(key)){
+  const audio=new Audio(C.assets.bgm[key]);
+  audio.preload='auto';audio.loop=true;audio.volume=.3;audio.load?.();
+  bgmPlayers.set(key,audio);
+ }
+ return bgmPlayers.get(key);
+}
+prepareMusic('wakare2');
 const names={gardevoir:'你',ralts:'拉鲁拉丝',charizard:'喷火龙'};
 const controlsCue=STORY.A.findIndex(row=>row.speaker==='拉鲁拉丝'&&row.text==='对了，您还记得您的王牌招式吧？');
 function music(key){
@@ -23,8 +34,8 @@ function music(key){
  if(key==='pauseTown08'&&bgKey==='town08'&&bgm){bgm.pause();bgKey=key;return;}
  if(key==='town08'&&bgKey==='pauseTown08'&&bgm){bgKey=key;if(!muted&&!paused)bgm.play().catch(error=>console.error('BGM play failed',key,error));return;}
  if(bgm){bgm.pause();bgm.currentTime=0;}
- bgKey=key;bgm=key&&key!=='pauseTown08'?new Audio(C.assets.bgm[key]):null;
- if(bgm){bgm.loop=true;bgm.volume=.3;if(!muted&&!paused)bgm.play().catch(error=>console.error('BGM play failed',key,error));}
+ bgKey=key;bgm=prepareMusic(key);
+ if(bgm&&!muted&&!paused)bgm.play().catch(error=>console.error('BGM play failed',key,error));
 }
 const bgmCues={
  aField:STORY.A.findIndex(row=>row.text.includes('把你围的严严实实')),
