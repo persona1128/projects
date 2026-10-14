@@ -52,7 +52,7 @@ assets/
 | 沙奈朵行走 | 100 × 100 SVG，色块与描边风格同敌人 | `gardevoir-0.svg` 至 `gardevoir-3.svg`，朝上；移动时摆臂、裙摆和迈步 |
 | 喷火龙待机 | 同上 | `charizard-0.svg` 至 `charizard-3.svg`，面向左；循环扇翼、呼吸和尾焰 |
 | 敌人 | 100 × 100 | 透明背景，主体居中；Boss 游戏内放大显示 |
-| BGM | MIDI 原件及 22.05 kHz WAV 合成版 | 按剧情对白切换，播放期间单曲循环 |
+| BGM | MIDI 原件及 22.05 kHz WAV 合成版 | 按剧情对白切换，播放期间单曲循环；`slg_engi.wav` 为单声道，以符合静态托管单文件大小限制 |
 | 音效 | 短 WAV | 尽量短，避免尾音过长 |
 
 行走图与待机动画使用独立帧路径数组；帧数自动读取 `config.js` 中的路径数组；沙奈朵移动时每秒 9 帧、喷火龙待机每秒 7 帧。`sprites/gardevoir.svg` 和 `sprites/charizard.svg` 与第 0 帧一致，实际运行使用带 `-0` 至 `-3` 的四张矢量动画帧。
